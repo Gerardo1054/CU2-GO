@@ -1,3 +1,4 @@
+
 const mysql = require('mysql2/promise');
 
 require('dotenv').config();
@@ -8,10 +9,18 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
+
+    authPlugins: {
+        mysql_clear_password: () => () => Buffer.from(
+            `${process.env.DB_PASSWORD}\0`
+        )
+    },
+
     timezone: '-06:00',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
+
     ssl: process.env.DB_SSL === 'true'
         ? { minVersion: 'TLSv1.2' }
         : undefined
