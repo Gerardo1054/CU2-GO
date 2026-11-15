@@ -1,0 +1,38 @@
+# Variables de entorno y secretos
+.env
+.env.*
+**/.env
+**/.env.*
+.env.example
+**/.env.example
+
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Archivos generados
+frontend/dist/
+dist/
+build/
+
+# Archivos del sistema
+.DS_Store
+**/.DS_Store
+
+# Evidencias y archivos subidos
+backend/uploads/
+
+# Cookies y sesiones
+backend/cookies*.txt
+
+# Respaldos y entregables anteriores
+*.sql
+!database/estructura_cu2_go.sql
+*.zip
+respaldos/
+
+# Archivos temporales
+*.log
+
+# Archivos internos de trabajo
+CU2_GO_CONTEXT_ANTIGRAVITY.md

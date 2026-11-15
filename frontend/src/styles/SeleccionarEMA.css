@@ -1,0 +1,232 @@
+
+.seleccionar-ema-container {
+    min-height: 100vh;
+    padding: 36px;
+    box-sizing: border-box;
+    background:
+        radial-gradient(circle at top left, #d5e8ff 0, transparent 42%),
+        linear-gradient(135deg, #e7f1ff 0%, #f4f8ff 55%, #e2efff 100%);
+    font-family: inherit;
+}
+
+/* ENCABEZADO */
+
+.seleccionar-ema-header {
+    width: 100%;
+    max-width: 1500px;
+    min-height: 145px;
+    margin: 0 auto;
+    padding: 30px 38px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(110deg, #123f78, #176bc0 58%, #20998e);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 27px;
+    box-shadow: 0 14px 35px rgba(25, 75, 130, 0.16);
+}
+
+.seleccionar-ema-logo {
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.seleccionar-ema-logo::after {
+    content: " DOCENCIA";
+    color: #65e0c1;
+}
+
+.seleccionar-ema-logout {
+    padding: 13px 23px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    background: rgba(255,255,255,0.20);
+    border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.seleccionar-ema-logout:hover {
+    background: rgba(255,255,255,0.32);
+    transform: translateY(-2px);
+}
+
+/* CONTENIDO */
+
+.seleccionar-ema-contenido {
+    width: min(90%, 570px);
+    margin: 65px auto;
+    padding: 45px;
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.88);
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(29, 70, 120, 0.10);
+    text-align: center;
+}
+
+.seleccionar-ema-icono {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e1efff, #d9f7f0);
+    border: 1px solid #ffffff;
+    border-radius: 23px;
+    font-size: 38px;
+}
+
+.seleccionar-ema-contenido h1 {
+    margin: 0 0 13px;
+    color: #153e6c;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.seleccionar-ema-descripcion {
+    margin: 0 0 32px;
+    color: #647b99;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* SELECTOR */
+
+.seleccionar-ema-formulario {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.seleccionar-ema-formulario label {
+    display: block;
+    margin-bottom: 10px;
+    color: #173b61;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.seleccionar-ema-formulario select {
+    width: 100%;
+    padding: 15px;
+    color: #294968;
+    font-size: 15px;
+    background: #ffffff;
+    border: 1px solid #c7d9ef;
+    border-radius: 13px;
+    outline: none;
+    cursor: pointer;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.seleccionar-ema-formulario select:focus {
+    border-color: #2588c9;
+    box-shadow: 0 0 0 4px rgba(37, 136, 201, 0.12);
+}
+
+/* BOTÓN PRINCIPAL */
+
+.seleccionar-ema-continuar {
+    width: 100%;
+    padding: 16px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 750;
+    background: linear-gradient(100deg, #176bc0, #168d9d);
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 13px;
+    box-shadow: 0 7px 16px rgba(23, 107, 192, 0.18);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.seleccionar-ema-continuar:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(23, 107, 192, 0.25);
+}
+
+.seleccionar-ema-continuar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* MENSAJES */
+
+.seleccionar-ema-error {
+    margin: 12px 0;
+    padding: 12px;
+    color: #b42318;
+    font-size: 14px;
+    background: #fff1f0;
+    border: 1px solid #ffd5d2;
+    border-radius: 10px;
+}
+
+.seleccionar-ema-mensaje {
+    padding: 20px;
+    color: #647b99;
+}
+
+.seleccionar-ema-nota {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 27px;
+    padding: 16px;
+    color: #1763a5;
+    font-size: 13px;
+    background: #eaf3ff;
+    border: 1px solid #d6e7fa;
+    border-radius: 13px;
+    text-align: left;
+}
+
+.seleccionar-ema-nota span {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.seleccionar-ema-nota p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .seleccionar-ema-container {
+        padding: 18px;
+    }
+
+    .seleccionar-ema-header {
+        min-height: 105px;
+        padding: 20px;
+        border-radius: 19px;
+    }
+
+    .seleccionar-ema-logo {
+        font-size: 23px;
+    }
+
+    .seleccionar-ema-logout {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .seleccionar-ema-contenido {
+        width: 100%;
+        margin: 35px auto;
+        padding: 30px 22px;
+    }
+
+    .seleccionar-ema-contenido h1 {
+        font-size: 25px;
+    }
+}

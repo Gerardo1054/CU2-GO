@@ -1,0 +1,62 @@
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: cu2go-mysql
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: cu2_go
+      MYSQL_USER: cu2_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: America/Mexico_City
+
+    command:
+      - --default-time-zone=-06:00
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d:ro
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+
+    container_name: cu2go-backend
+    restart: unless-stopped
+
+    env_file:
+      - ./backend/.env
+
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: cu2_user
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      DB_NAME: cu2_go
+      PORT: 3000
+      NODE_ENV: development
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./backend/uploads:/app/uploads
+
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:

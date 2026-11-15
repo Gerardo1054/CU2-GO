@@ -1,0 +1,123 @@
+.gateway-error-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background:
+        radial-gradient(ellipse at 12% 18%, rgba(73,153,255,.18), transparent 35%),
+        radial-gradient(ellipse at 88% 82%, rgba(32,168,117,.14), transparent 34%),
+        linear-gradient(135deg, #edf5ff 0%, #f7fbff 48%, #eaf8f2 100%);
+    font-family: 'Inter', sans-serif;
+}
+
+.gateway-error-card {
+    width: 100%;
+    max-width: 540px;
+    padding: 50px 40px;
+    text-align: center;
+    background: rgba(255,255,255,.68);
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 30px;
+    box-shadow: 0 24px 70px rgba(17,54,105,.13);
+    backdrop-filter: blur(28px) saturate(150%);
+    -webkit-backdrop-filter: blur(28px) saturate(150%);
+}
+
+.gateway-error-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: rgba(255, 170, 55, .14);
+    color: #d88919;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.gateway-error-tag {
+    color: #1765bb;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.gateway-error-card h1 {
+    margin: 12px 0 0;
+    font-size: clamp(90px, 18vw, 140px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -8px;
+    background: linear-gradient(110deg, #1765bb, #237bd0 55%, #20a875);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gateway-error-card h2 {
+    margin-top: 18px;
+    color: #12345b;
+    font-size: 23px;
+}
+
+.gateway-error-card p {
+    max-width: 390px;
+    margin: 14px auto 28px;
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.gateway-error-button {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    padding: 14px 22px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(110deg, #1765bb, #237bd0 62%, #20a875);
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(23,101,187,.22);
+    transition: .2s ease;
+}
+
+.gateway-error-button:hover {
+    transform: translateY(-2px);
+}
+
+.gateway-error-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: #1765bb;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.gateway-error-link:hover {
+    text-decoration: underline;
+}
+
+.gateway-error-footer {
+    display: block;
+    margin-top: 35px;
+    color: #9aa4b3;
+    font-size: 11px;
+}
+
+@media (max-width: 500px) {
+    .gateway-error-card {
+        padding: 40px 22px;
+    }
+
+    .gateway-error-card h2 {
+        font-size: 20px;
+    }
+}

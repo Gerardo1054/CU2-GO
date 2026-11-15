@@ -1,0 +1,704 @@
+
+/* ========================================
+   PANEL DOCENTE
+======================================== */
+
+.docente-container {
+    min-height: 100vh;
+    padding: 35px;
+    background:
+        radial-gradient(ellipse at 10% 8%, rgba(48, 132, 225, .15), transparent 32%),
+        radial-gradient(ellipse at 92% 88%, rgba(32, 168, 117, .13), transparent 32%),
+        linear-gradient(135deg, #edf5ff, #f8fbff 55%, #edf8f3);
+    color: #173653;
+    font-family: Inter, system-ui, sans-serif;
+}
+
+.docente-contenido {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+/* ========================================
+   ENCABEZADO
+======================================== */
+
+.docente-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    padding: 30px 35px;
+    border-radius: 26px;
+    color: white;
+    background:
+        radial-gradient(circle at 85% 15%, rgba(255,255,255,.16), transparent 30%),
+        linear-gradient(112deg, #0d3974 0%, #1765bb 65%, #168b83 100%);
+    box-shadow: 0 15px 35px rgba(13, 57, 116, .20);
+}
+
+.docente-header h1 {
+    margin: 8px 0;
+    color: white;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.docente-header h1 strong {
+    color: #72e4b8;
+}
+
+.docente-header p {
+    margin: 0;
+    color: #dbeafe;
+    font-size: 14px;
+}
+
+.docente-header > div:first-child > span {
+    color: #bfdbfe;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.docente-ema-header {
+    margin-top: 12px !important;
+    color: #dbeafe;
+    font-size: 13px;
+}
+
+.docente-ema-header strong {
+    color: white;
+}
+
+.docente-header-acciones {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.docente-btn-salir {
+    padding: 12px 20px;
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 12px;
+    color: white;
+    background: rgba(255,255,255,.14);
+    backdrop-filter: blur(12px);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.docente-btn-salir:hover {
+    background: rgba(255,255,255,.25);
+    transform: translateY(-2px);
+}
+
+.docente-btn-salir:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ========================================
+   BIENVENIDA
+======================================== */
+
+.docente-bienvenida {
+    margin-bottom: 28px;
+}
+
+.docente-bienvenida h2 {
+    margin-bottom: 8px;
+    color: #123b68;
+    font-size: 25px;
+    font-weight: 750;
+}
+
+.docente-bienvenida p {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.docente-btn-nueva-incidencia {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 18px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.docente-btn-nueva-incidencia:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.docente-btn-nueva-incidencia:active {
+    transform: translateY(0);
+}
+
+.docente-btn-nueva-incidencia:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+/* ========================================
+   TARJETAS DE RESUMEN
+======================================== */
+
+.docente-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 28px 0;
+}
+
+.docente-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 22px;
+    background: rgba(255,255,255,.72);
+    box-shadow: 0 8px 25px rgba(30,64,100,.07);
+    backdrop-filter: blur(22px);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.docente-summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(30,64,100,.12);
+}
+
+.docente-summary-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.docente-summary-datos span {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.docente-summary-datos strong {
+    color: #123b68;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+/* ========================================
+   SECCIÓN DE INCIDENCIAS
+======================================== */
+
+.docente-seccion {
+    margin-top: 30px;
+}
+
+.docente-seccion h2 {
+    margin-bottom: 20px;
+    color: #173653;
+    font-size: 22px;
+    font-weight: 750;
+}
+
+/* ========================================
+   PESTAÑAS
+======================================== */
+
+.docente-tabs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 8px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 16px;
+    background: rgba(255,255,255,.65);
+    box-shadow: 0 8px 25px rgba(30,64,100,.07);
+    backdrop-filter: blur(18px);
+}
+
+.docente-tab {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 11px;
+    background: transparent;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.docente-tab:hover {
+    background: rgba(37,99,235,.08);
+    color: #1765bb;
+}
+
+.docente-tab.activo {
+    color: white;
+    background: linear-gradient(110deg, #123b68, #1765bb);
+    box-shadow: 0 5px 14px rgba(23,101,187,.22);
+}
+
+/* ========================================
+   LISTAS Y TARJETAS DE INCIDENCIAS
+======================================== */
+
+.docente-incidencias-lista {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.docente-incidencia-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    min-width: 0;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 20px;
+    background: rgba(255,255,255,.78);
+    box-shadow: 0 8px 25px rgba(30,64,100,.07);
+    backdrop-filter: blur(18px);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.docente-incidencia-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(30,64,100,.12);
+}
+
+.docente-incidencia-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+.docente-incidencia-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.docente-incidencia-card h3 {
+    margin: 0;
+    color: #123b68;
+    font-size: 18px;
+    font-weight: 750;
+    line-height: 1.4;
+}
+
+.docente-incidencia-card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.docente-incidencia-descripcion {
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   DATOS DE INCIDENCIA
+======================================== */
+
+.docente-incidencia-datos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.docente-dato {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid #e2eaf4;
+    border-radius: 13px;
+    background: #f7faff;
+}
+
+.docente-dato span {
+    color: #71839b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.docente-dato strong {
+    color: #334155;
+    font-size: 14px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* ========================================
+   ESTADOS
+======================================== */
+
+.docente-estado {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    margin: 0;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 750;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.docente-estado.recibida {
+    color: #1d4ed8;
+    background: #dbeafe;
+}
+
+.docente-estado.en_proceso {
+    color: #a16207;
+    background: #fef3c7;
+}
+
+.docente-estado.pendiente_validacion {
+    color: #7e22ce;
+    background: #f3e8ff;
+}
+
+.docente-estado.arreglada {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.docente-btn-tomar {
+    width: 100%;
+    padding: 13px 18px;
+    margin: 0;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    background: linear-gradient(110deg, #123b68, #1765bb);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.docente-btn-tomar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(23,101,187,.25);
+}
+
+.docente-btn-tomar:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ========================================
+   EVALUACIONES
+======================================== */
+
+.docente-evaluacion-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.docente-evaluacion-form label {
+    color: #173653;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.docente-evaluacion-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d5e1ef;
+    border-radius: 12px;
+    background: #f8fbff;
+    color: #173653;
+    font: inherit;
+    font-size: 14px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+.docente-evaluacion-form textarea:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #2563eb;
+}
+
+.docente-evaluacion-espera,
+.docente-evaluacion-completa {
+    padding: 16px;
+    border-radius: 12px;
+    background: #f3e8ff;
+    color: #6b21a8;
+    font-size: 14px;
+}
+
+.docente-evaluacion-espera p {
+    margin-top: 7px;
+}
+
+.docente-evaluacion-completa {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* ========================================
+   HISTORIAL
+======================================== */
+
+.docente-historial-lista {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.docente-historial-detalle {
+    padding: 20px;
+    border: 1px solid #dce7f3;
+    border-radius: 15px;
+    background: #f7faff;
+}
+
+.docente-historial-detalle h4 {
+    margin: 0 0 18px;
+    color: #123b68;
+    font-size: 16px;
+}
+
+.docente-historial-movimiento {
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid #2563eb;
+    border-radius: 8px;
+    background: white;
+}
+
+.docente-historial-movimiento:last-child {
+    margin-bottom: 0;
+}
+
+.docente-historial-movimiento strong {
+    color: #123b68;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.docente-historial-movimiento p {
+    margin: 9px 0;
+    overflow-wrap: anywhere;
+}
+
+.docente-historial-movimiento small {
+    color: #71839b;
+    font-size: 12px;
+}
+
+/* ========================================
+   MENSAJES Y ALERTAS
+======================================== */
+
+.docente-mensaje-vacio {
+    grid-column: 1 / -1;
+    padding: 45px 25px;
+    border: 1px solid rgba(255,255,255,.85);
+    border-radius: 20px;
+    background: rgba(255,255,255,.65);
+    box-shadow: 0 8px 25px rgba(30,64,100,.05);
+    color: #64748b;
+    text-align: center;
+}
+
+.docente-mensaje-vacio h3 {
+    margin-bottom: 8px;
+    color: #123b68;
+    font-size: 18px;
+}
+
+.docente-alerta {
+    padding: 14px 18px;
+    margin: 15px 0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.docente-alerta.error {
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+.docente-alerta.exito {
+    border: 1px solid #bbf7d0;
+    color: #166534;
+    background: #dcfce7;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+    .docente-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .docente-incidencias-lista {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .docente-container {
+        padding: 18px;
+    }
+
+    .docente-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+    }
+
+    .docente-header-acciones {
+        width: 100%;
+    }
+
+    .docente-btn-salir {
+        width: 100%;
+    }
+
+    .docente-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .docente-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .docente-tab {
+        width: 100%;
+    }
+
+    .docente-bienvenida h2 {
+        font-size: 21px;
+    }
+
+    .docente-incidencia-card {
+        padding: 19px;
+    }
+
+    .docente-incidencia-datos {
+        grid-template-columns: 1fr;
+    }
+
+    .docente-historial-detalle {
+        padding: 14px;
+    }
+}
+
+
+.docente-toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: max-content;
+    max-width: min(380px, calc(100vw - 32px));
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+    animation: toastEntrada 0.3s ease, toastSalida 0.3s ease 2.7s forwards;
+}
+
+.docente-toast.exito {
+    border-left: 4px solid #16a34a;
+}
+
+.docente-toast.error {
+    border-left: 4px solid #dc2626;
+}
+
+.docente-toast-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    font-weight: 700;
+}
+
+.docente-toast.error .docente-toast-icono {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+@keyframes toastEntrada {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes toastSalida {
+    to {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+}
+
+@media (max-width: 480px) {
+    .docente-toast {
+        top: 12px;
+        right: 12px;
+        left: 12px;
+        width: auto;
+        max-width: none;
+    }
+}

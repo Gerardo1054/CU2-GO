@@ -1,0 +1,39 @@
+/* Ventanas y mensajes personalizados de CU2 GO */
+.cu2-modal-overlay {
+    position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center;
+    padding:22px; background:rgba(8,28,55,.48); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+}
+.cu2-modal {
+    width:min(100%,480px); padding:30px; border-radius:26px; text-align:center;
+    color:#173653; background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(239,247,255,.95));
+    border:1px solid rgba(255,255,255,.9); box-shadow:0 28px 80px rgba(7,35,72,.28), inset 0 1px 0 #fff;
+    animation:cu2-modal-in .22s ease-out;
+}
+@keyframes cu2-modal-in { from { opacity:0; transform:translateY(10px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+.cu2-modal-icon { width:54px; height:54px; margin:0 auto 15px; display:grid; place-items:center; border-radius:18px; font-size:27px; font-weight:800; }
+.cu2-modal-icon-danger { color:#b42335; background:linear-gradient(145deg,#ffe9eb,#fff5f5); border:1px solid rgba(190,35,53,.15); }
+.cu2-modal-icon-success { color:#087a58; background:linear-gradient(145deg,#dff9ee,#effdf7); border:1px solid rgba(32,168,117,.2); }
+.cu2-modal-eyebrow { display:block; margin-bottom:8px; color:#2674b8; font-size:10px; font-weight:850; letter-spacing:1.6px; }
+.cu2-modal h2 { margin:0 0 10px; color:#123b68; font-size:23px; line-height:1.25; letter-spacing:-.4px; }
+.cu2-modal > p { margin:0 auto; max-width:390px; color:#587087; font-size:14px; line-height:1.65; }
+.cu2-modal-detail { display:flex; flex-direction:column; gap:7px; margin:18px 0 0; padding:13px 15px; text-align:left; border:1px solid rgba(23,101,187,.12); border-radius:13px; background:rgba(231,242,255,.62); color:#315574; font-size:13px; overflow-wrap:anywhere; }
+.cu2-modal-actions { display:flex; justify-content:center; gap:11px; margin-top:24px; }
+.cu2-modal-actions button { min-height:43px; padding:11px 17px; border-radius:12px; font:inherit; font-size:13px; font-weight:750; cursor:pointer; transition:transform .18s, box-shadow .18s; }
+.cu2-modal-actions button:hover { transform:translateY(-1px); }
+.cu2-modal-actions button:disabled { opacity:.6; cursor:wait; transform:none; }
+.cu2-btn-secondary {
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, .25) !important;
+    background: linear-gradient(110deg, #486581, #627d98) !important;
+    box-shadow: 0 6px 16px rgba(49, 85, 116, .22);
+}
+.cu2-btn-secondary:hover {
+    background: linear-gradient(110deg, #334e68, #486581) !important;
+    color: #ffffff !important;
+    box-shadow: 0 8px 20px rgba(49, 85, 116, .3);
+}
+.cu2-btn-danger { color:#fff; border:1px solid #bd3446; background:linear-gradient(110deg,#b92e42,#e05261); box-shadow:0 8px 18px rgba(189,48,61,.17); }
+.cu2-btn-primary { color:#fff; border:1px solid #1765bb; background:linear-gradient(110deg,#0d3974,#1765bb 70%,#168b83); box-shadow:0 9px 20px rgba(23,101,187,.2); }
+.cu2-modal-actions-single { justify-content:stretch; }
+.cu2-modal-actions-single button { width:100%; }
+@media (max-width:520px) { .cu2-modal { padding:24px 19px; border-radius:21px; } .cu2-modal-actions { flex-direction:column-reverse; } .cu2-modal-actions button { width:100%; } }

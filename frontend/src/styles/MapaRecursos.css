@@ -1,0 +1,1861 @@
+/* ========================================= */
+/* SECCIÓN GENERAL DEL MAPA */
+/* ========================================= */
+.mapa-recursos-section {
+       width: 100%;
+
+       max-width: 100%;
+
+       margin: 28px 0;
+
+       padding: 28px;
+
+       box-sizing: border-box;
+
+
+
+       border: 1px solid rgba(255, 255, 255, 0.65);
+
+       border-radius: 24px;
+
+
+
+       background: rgba(255, 255, 255, 0.55);
+
+       backdrop-filter: blur(24px);
+
+       -webkit-backdrop-filter: blur(24px);
+
+
+
+       box-shadow: 0 12px 35px rgba(30, 65, 110, 0.08);
+
+       overflow: visible;
+
+}
+
+
+
+/* ========================================= */
+/* ENCABEZADO */
+/* ========================================= */
+
+
+
+.mapa-encabezado {
+
+       display: flex;
+
+       align-items: center;
+
+       justify-content: space-between;
+
+       gap: 20px;
+
+       margin-bottom: 24px;
+
+}
+
+
+
+.mapa-encabezado h2 {
+
+       margin: 10px 0 5px;
+
+       color: #172b4d;
+
+       font-size: 25px;
+
+}
+
+
+
+.mapa-encabezado p {
+
+       margin: 0;
+
+       color: #718096;
+
+}
+
+
+
+.mapa-contador {
+
+       min-width: 85px;
+
+       padding: 14px;
+
+       box-sizing: border-box;
+
+
+
+       border: 1px solid rgba(255, 255, 255, 0.8);
+
+       border-radius: 18px;
+
+
+
+       background: rgba(255, 255, 255, 0.7);
+
+       text-align: center;
+
+}
+
+
+
+.mapa-contador strong {
+
+       display: block;
+
+       color: #2867ad;
+
+       font-size: 25px;
+
+}
+
+
+
+.mapa-contador span {
+
+       color: #718096;
+
+       font-size: 12px;
+
+}
+
+
+
+/* ========================================= */
+/* LEYENDA */
+/* ========================================= */
+
+
+
+.mapa-leyenda {
+
+       display: flex;
+
+       flex-wrap: wrap;
+
+       gap: 20px;
+
+       margin-bottom: 20px;
+
+
+
+       color: #53647b;
+
+       font-size: 13px;
+
+}
+
+
+
+.mapa-leyenda span {
+
+       display: flex;
+
+       align-items: center;
+
+       gap: 8px;
+
+}
+
+
+
+.mapa-leyenda i {
+
+       width: 10px;
+
+       height: 10px;
+
+       display: inline-block;
+
+       border-radius: 50%;
+
+}
+
+
+
+.punto-disponible {
+
+       background: #347ed4;
+
+}
+
+
+
+.punto-ocupado {
+
+       background: #d65a5a;
+
+}
+
+
+
+.punto-seleccionado {
+
+       background: #39ff14;
+
+}
+
+
+
+/* ========================================= */
+/* CATEGORÍAS */
+/* ========================================= */
+
+
+
+.mapa-categorias {
+
+       display: flex;
+
+       flex-wrap: wrap;
+
+       gap: 9px;
+
+       margin-bottom: 20px;
+
+}
+
+
+
+.mapa-pestana {
+
+       padding: 10px 17px;
+
+
+
+       display: inline-flex;
+
+       align-items: center;
+
+       gap: 8px;
+
+
+
+       border: 1px solid rgba(255, 255, 255, 0.3);
+
+       border-radius: 14px;
+
+
+
+       background: linear-gradient(110deg, #335377, #486581);
+
+       color: #ffffff !important;
+
+
+
+       font-size: 13px;
+
+       font-weight: 600;
+
+       cursor: pointer;
+
+
+
+       box-shadow: 0 4px 12px rgba(27, 67, 112, 0.12);
+
+       transition: background 0.2s ease, transform 0.2s ease !important;
+
+}
+
+
+
+.mapa-pestana:hover {
+
+       background: linear-gradient(110deg, #244163, #385573);
+
+       color: #ffffff !important;
+
+}
+
+
+
+.mapa-pestana.activa {
+
+       border-color: rgba(255, 255, 255, 0.6);
+
+       background: linear-gradient(110deg, #1765bb, #168b83) !important;
+
+       color: #ffffff !important;
+
+       box-shadow: 0 6px 18px rgba(23, 101, 187, 0.25);
+
+}
+
+
+
+.categoria-emoji {
+
+       font-size: 16px;
+
+       line-height: 1;
+
+}
+
+
+
+/* ========================================= */
+/* PLANO GENERAL */
+/* ========================================= */
+
+
+
+.mapa-plano {
+
+       position: relative;
+
+
+
+       width: 100%;
+
+       max-width: 100%;
+
+       min-width: 0;
+
+       height: 650px;
+
+
+
+       margin: 0 auto;
+
+       box-sizing: border-box;
+
+
+
+       overflow: hidden;
+
+
+
+       border: 2px solid #a9b9cc;
+
+       border-radius: 18px;
+
+
+
+       background:
+
+           linear-gradient(rgba(130, 155, 180, 0.08) 1px, transparent 1px),
+
+           linear-gradient(90deg, rgba(130, 155, 180, 0.08) 1px, transparent 1px),
+
+           \#edf3f8;
+
+
+
+       background-size: 25px 25px;
+
+}
+
+
+
+/* ========================================= */
+/* FRENTE DEL SALÓN - PARED DERECHA */
+/* ========================================= */
+
+
+
+.mapa-frente {
+
+       position: absolute;
+
+       top: 0;
+
+       right: 0;
+
+
+
+       width: 42px;
+
+       height: 100%;
+
+
+
+       z-index: 5;
+
+
+
+       display: flex;
+
+       align-items: center;
+
+       justify-content: center;
+
+
+
+       background: #173e60;
+
+       border-left: 3px solid #082b49;
+
+       border-radius: 0 14px 14px 0;
+
+}
+
+
+
+.mapa-frente span {
+
+       color: #ffffff;
+
+       font-size: 12px;
+
+       font-weight: 900;
+
+       letter-spacing: 2px;
+
+
+
+       writing-mode: vertical-rl;
+
+       transform: rotate(180deg);
+
+       white-space: nowrap;
+
+}
+
+
+
+/* ========================================= */
+/* PIZARRÓN - PARED DERECHA */
+/* ========================================= */
+
+
+
+.mapa-pizarron {
+
+       position: absolute;
+
+
+
+       top: 50%;
+
+       right: 55px;
+
+       left: auto;
+
+
+
+       width: 38px;
+
+       height: 42%;
+
+
+
+       z-index: 4;
+
+
+
+       display: flex;
+
+       align-items: center;
+
+       justify-content: center;
+
+
+
+       transform: translateY(-50%);
+
+
+
+       border: 3px solid #263e54;
+
+       border-radius: 8px;
+
+
+
+       background: #263e54;
+
+       color: #ffffff;
+
+
+
+       font-size: 11px;
+
+       font-weight: 900;
+
+       letter-spacing: 1px;
+
+
+
+       writing-mode: vertical-rl;
+
+}
+
+
+
+/* ========================================= */
+/* PUERTA - ESQUINA SUPERIOR DERECHA *//* BISAGRAS DEL LADO DERECHO */
+/* ========================================= */
+
+
+
+.mapa-puerta {
+
+       position: absolute;
+
+
+
+       top: 8px;
+
+       right: 42px;
+
+
+
+       width: 105px;
+
+       height: 95px;
+
+
+
+       z-index: 6;
+
+
+
+       box-sizing: border-box;
+
+
+
+       background: #edf3f8;
+
+
+
+       border-right: 3px solid #263e54;
+
+       border-bottom: 3px solid #263e54;
+
+
+
+       border-radius: 0 0 12px 0;
+
+}
+
+
+
+/* Texto de la puerta */
+
+
+
+.mapa-puerta span {
+
+       position: absolute;
+
+
+
+       top: 7px;
+
+       left: 5px;
+
+
+
+       padding: 5px 9px;
+
+
+
+       border-radius: 7px;
+
+
+
+       background: #173e60;
+
+       color: #ffffff;
+
+
+
+       font-size: 11px;
+
+       font-weight: 900;
+
+       letter-spacing: 1px;
+
+}
+
+
+
+/* Hoja de la puerta invertida */
+
+
+
+.puerta-hoja {
+
+       position: absolute;
+
+
+
+       top: 0;
+
+       right: 0;
+
+
+
+       width: 72px;
+
+       height: 3px;
+
+
+
+       background: #173e60;
+
+
+
+       transform-origin: right center;
+
+       transform: rotate(-90deg);
+
+}
+
+
+
+/* Arco de apertura invertido */
+
+
+
+.puerta-arco {
+
+       position: absolute;
+
+
+
+       right: 0;
+
+       bottom: 0;
+
+
+
+       width: 72px;
+
+       height: 72px;
+
+
+
+       border: 2px solid #60758b;
+
+       border-left: 0;
+
+       border-top: 0;
+
+
+
+       border-radius: 0 0 72px 0;
+
+}
+
+
+
+/* ========================================= */
+/* ÁREA DONDE SE COLOCAN LOS RECURSOS */
+/* ========================================= */
+
+
+
+.mapa-area {
+
+       position: absolute;
+
+
+
+       top: 25px;
+
+       right: 125px;
+
+       bottom: 25px;
+
+       left: 25px;
+
+}
+
+
+
+/* ========================================= */
+/* MARCADORES DE RECURSOS */
+/* ========================================= */
+
+
+
+.mapa-marcador {
+
+       position: absolute;
+
+       z-index: 2;
+
+
+
+       width: 54px;
+
+       min-height: 49px;
+
+       padding: 5px 4px;
+
+
+
+       display: flex;
+
+       flex-direction: column;
+
+       align-items: center;
+
+       justify-content: center;
+
+       gap: 3px;
+
+
+
+       box-sizing: border-box;
+
+
+
+       transform: translate(-50%, -50%);
+
+
+
+       border: 1px solid transparent;
+
+       border-radius: 10px;
+
+
+
+       cursor: pointer;
+
+
+
+       transition: none !important;
+
+       animation: none !important;
+
+}
+
+
+
+/* Recurso disponible */
+
+
+
+.mapa-marcador.disponible {
+
+       border-color: #176d4c;
+
+       background: #247b59;
+
+       color: #ffffff;
+
+}
+
+
+
+/* Recurso ocupado */
+
+
+
+.mapa-marcador.ocupado {
+
+       border-color: #9d3333;
+
+       background: #a83e3e;
+
+       color: #ffffff;
+
+
+
+       cursor: not-allowed;
+
+       opacity: 1;
+
+}
+
+
+
+/* Recurso seleccionado */
+
+
+
+.mapa-marcador.seleccionado {
+
+       z-index: 7;
+
+
+
+       border: 2px solid #087443;
+
+       background: #20a875;
+
+       color: #ffffff;
+
+
+
+       box-shadow: 0 0 0 3px rgba(32, 168, 117, 0.30);
+
+}
+
+
+
+/* Recursos deshabilitados */
+
+
+
+.mapa-marcador:disabled {
+
+       cursor: not-allowed;
+
+}
+
+
+
+/* Evitar animaciones y movimientos */
+
+
+
+.mapa-marcador:hover,
+
+.mapa-marcador:active,
+
+.mapa-marcador:focus {
+
+       transform: translate(-50%, -50%) !important;
+
+
+
+       transition: none !important;
+
+       animation: none !important;
+
+       filter: none;
+
+}
+
+
+
+/* ========================================= */
+/* ICONOS Y CÓDIGOS */
+/* ========================================= */
+
+
+
+.marcador-icono {
+
+       font-size: 18px;
+
+       line-height: 1;
+
+}
+
+
+
+.marcador-codigo {
+
+       display: block;
+
+
+
+       max-width: 100%;
+
+       overflow: hidden;
+
+
+
+       color: #ffffff !important;
+
+
+
+       font-size: 9px;
+
+       font-weight: 800;
+
+       text-align: center;
+
+
+
+       text-overflow: ellipsis;
+
+       white-space: nowrap;
+
+
+
+       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
+
+}
+
+
+
+/* ========================================= */
+/* MESAS */
+/* ========================================= */
+
+
+
+.mapa-marcador.mesa {
+
+       width: 43px;
+
+       height: 160px;
+
+       min-height: 160px;
+
+       padding: 5px;
+
+
+
+       border: 2px solid #79552d;
+
+       border-radius: 8px;
+
+
+
+       background: #b98b54;
+
+       color: #ffffff;
+
+}
+
+
+
+.mapa-marcador.mesa .marcador-icono {
+
+       display: none;
+
+}
+
+
+
+.mapa-marcador.mesa .marcador-codigo {
+
+       font-size: 9px;
+
+       writing-mode: vertical-rl;
+
+       transform: rotate(180deg);
+
+}
+
+
+
+/* ========================================= */
+/* SILLAS */
+/* ========================================= */
+
+
+
+.mapa-marcador.silla {
+
+       width: 38px;
+
+       height: 38px;
+
+       min-height: 38px;
+
+
+
+       padding: 3px;
+
+       border-radius: 8px;
+
+}
+
+
+
+.mapa-marcador.silla .marcador-icono {
+
+       font-size: 17px;
+
+}
+
+
+
+.mapa-marcador.silla .marcador-codigo {
+
+       font-size: 8px;
+
+}
+
+
+
+/* ========================================= */
+/* MENSAJES DE AYUDA */
+/* ========================================= */
+
+
+
+.mapa-ayuda {
+
+       margin-top: 16px;
+
+       padding: 14px 16px;
+
+
+
+       border: 1px solid rgba(100, 130, 165, 0.15);
+
+       border-radius: 12px;
+
+
+
+       background: rgba(255, 255, 255, 0.55);
+
+       color: #65758b;
+
+
+
+       font-size: 13px;
+
+       line-height: 1.6;
+
+}
+
+
+
+/* ========================================= */
+/* RECURSO SELECCIONADO */
+/* ========================================= */
+
+
+
+.recurso-seleccionado {
+
+       display: flex;
+
+       align-items: center;
+
+       justify-content: space-between;
+
+       gap: 15px;
+
+
+
+       margin-top: 16px;
+
+       padding: 18px;
+
+
+
+       border: 1px solid rgba(52, 126, 212, 0.2);
+
+       border-radius: 15px;
+
+
+
+       background: rgba(225, 239, 255, 0.65);
+
+}
+
+
+
+.recurso-seleccionado span {
+
+       color: #347ed4;
+
+       font-size: 10px;
+
+       font-weight: 800;
+
+       letter-spacing: 1px;
+
+}
+
+
+
+.recurso-seleccionado h3 {
+
+       margin: 6px 0;
+
+       color: #203b5c;
+
+       font-size: 17px;
+
+}
+
+
+
+.recurso-seleccionado p {
+
+       margin: 0;
+
+       color: #718096;
+
+       font-size: 13px;
+
+}
+
+
+
+.recurso-seleccionado button {
+
+       padding: 10px 16px;
+
+
+
+       border: 1px solid rgba(255, 255, 255, 0.35);
+
+       border-radius: 10px;
+
+
+
+       background: linear-gradient(110deg, #2b5684, #3d6f9f);
+
+       color: #ffffff !important;
+
+       font-weight: 650;
+
+
+
+       cursor: pointer;
+
+
+
+       box-shadow: 0 4px 12px rgba(27, 67, 112, 0.15);
+
+       transition: background 0.2s ease, transform 0.2s ease !important;
+
+}
+
+
+
+.recurso-seleccionado button:hover {
+
+       background: linear-gradient(110deg, #1d436c, #2b5684);
+
+       color: #ffffff !important;
+
+       transform: translateY(-1px) !important;
+
+}
+
+
+
+.recurso-seleccionado button:active {
+
+       transform: translateY(1px) scale(0.98) !important;
+
+}
+
+
+
+/* ========================================= */
+/* MENSAJES DEL MAPA */
+/* ========================================= */
+
+
+
+.mapa-mensaje {
+
+       padding: 45px 20px;
+
+
+
+       border: 1px dashed #b8c8d8;
+
+       border-radius: 15px;
+
+
+
+       color: #718096;
+
+       text-align: center;
+
+}
+
+
+
+/* ========================================= */
+/* TIPO DE ESPACIO */
+/* ========================================= */
+
+
+
+.tipo-espacio {
+
+       margin: 12px 0;
+
+       color: #53647b;
+
+       font-size: 14px;
+
+}
+
+
+
+/* Contenedor adaptable: evita que el mapa se corte en móviles */
+
+.mapa-scroll {
+
+       width: 100%;
+
+       max-width: 100%;
+
+       overflow-x: auto;
+
+       overflow-y: hidden;
+
+       border-radius: 18px;
+
+       -webkit-overflow-scrolling: touch;
+
+}
+
+
+
+.mapa-area {
+
+       position: absolute;
+
+       top: 25px;
+
+       right: 125px;
+
+       bottom: 25px;
+
+       left: 25px;
+
+}
+
+
+
+/* Los recursos ocupados siempre conservan el color rojo */
+
+.mapa-marcador.ocupado,
+
+.mapa-marcador.mesa.ocupado,
+
+.mapa-marcador.silla.ocupado,
+
+.mapa-marcador.ocupado.seleccionado {
+
+       border-color: #9d3333 !important;
+
+       background: #a83e3e !important;
+
+       color: #ffffff !important;
+
+       cursor: not-allowed;
+
+}
+
+
+
+/* Aviso flotante de recurso ocupado */
+
+
+
+.mapa-aviso-flotante {
+
+       position: sticky;
+
+       top: 12px;
+
+       z-index: 100;
+
+
+
+       display: flex;
+
+       align-items: center;
+
+       gap: 12px;
+
+
+
+       width: fit-content;
+
+       max-width: 100%;
+
+       margin: 12px auto;
+
+       padding: 14px 18px;
+
+
+
+       color: #991b1b;
+
+       background: rgba(254, 226, 226, 0.95);
+
+       border: 1px solid rgba(239, 68, 68, 0.35);
+
+       border-radius: 16px;
+
+
+
+       box-shadow: 0 12px 30px rgba(127, 29, 29, 0.12);
+
+
+
+       backdrop-filter: blur(16px);
+
+       -webkit-backdrop-filter: blur(16px);
+
+
+
+       animation: avisoEntrada 0.25s ease;
+
+}
+
+
+
+.aviso-icono {
+
+       display: grid;
+
+       place-items: center;
+
+       flex-shrink: 0;
+
+
+
+       width: 27px;
+
+       height: 27px;
+
+
+
+       color: white;
+
+       background: #dc2626;
+
+       border-radius: 50%;
+
+
+
+       font-weight: 800;
+
+}
+
+
+
+.mapa-aviso-flotante button {
+
+       margin-left: 8px;
+
+       display: grid;
+
+       place-items: center;
+
+       width: 26px;
+
+       height: 26px;
+
+       color: #ffffff !important;
+
+       background: #dc2626;
+
+       border: 1px solid rgba(255, 255, 255, 0.4);
+
+       border-radius: 50%;
+
+       font-size: 16px;
+
+       font-weight: 700;
+
+       line-height: 1;
+
+       cursor: pointer;
+
+       transition: background 0.2s ease, transform 0.2s ease;
+
+}
+
+
+
+.mapa-aviso-flotante button:hover {
+
+       background: #b91c1c;
+
+       color: #ffffff !important;
+
+       transform: scale(1.08);
+
+}
+
+
+
+@keyframes avisoEntrada {
+
+       from {
+
+           opacity: 0;
+
+           transform: translateY(-8px);
+
+       }
+
+
+
+       to {
+
+           opacity: 1;
+
+           transform: translateY(0);
+
+       }
+
+}
+
+
+
+/* RECURSO SELECCIONADO: VERDE FOSFORESCENTE */
+
+
+
+.mapa-marcador.disponible.seleccionado {
+
+       background: #39ff14 !important;
+
+       background-color: #39ff14 !important;
+
+       border: 3px solid #00c853 !important;
+
+       color: #102b08 !important;
+
+       box-shadow:
+
+           0 0 5px #39ff14,
+
+           0 0 12px #39ff14,
+
+           0 0 22px rgba(57, 255, 20, 0.75) !important;
+
+       z-index: 10;
+
+}
+
+
+
+/* Los recursos ocupados siempre permanecen rojos */
+
+
+
+.mapa-marcador.ocupado,
+
+.mapa-marcador.ocupado.seleccionado {
+
+       background: #a83e3e !important;
+
+       border-color: #9d3333 !important;
+
+       color: #ffffff !important;
+
+       box-shadow: none !important;
+
+}
+
+
+
+/* ========================================= */
+/* DISEÑO RESPONSIVO */
+/* ========================================= */
+
+
+
+/* COMPUTADORA */
+
+@media (min-width: 901px) {
+
+       .mapa-recursos-section {
+
+           padding: 22px;
+
+           margin: 18px 0;
+
+       }
+
+
+
+       .mapa-plano {
+
+           width: 100%;
+
+           min-width: 0;
+
+           height: 560px;
+
+       }
+
+
+
+       .mapa-scroll {
+
+           overflow-x: hidden;
+
+       }
+
+}
+
+
+
+/* TABLETS */
+
+@media (min-width: 701px) and (max-width: 900px) {
+
+       .mapa-recursos-section {
+
+           padding: 18px;
+
+       }
+
+
+
+       .mapa-plano {
+
+           width: 850px;
+
+           min-width: 850px;
+
+           height: 520px;
+
+       }
+
+
+
+       .mapa-scroll {
+
+           overflow-x: auto;
+
+       }
+
+
+
+       .mapa-marcador {
+
+           transform: translate(-50%, -50%) scale(0.82);
+
+       }
+
+
+
+       .mapa-marcador:hover,
+
+       .mapa-marcador:active,
+
+       .mapa-marcador:focus {
+
+           transform: translate(-50%, -50%) scale(0.82) !important;
+
+       }
+
+}
+
+
+
+/* CELULARES */
+
+@media (max-width: 700px) {
+
+       .mapa-recursos-section {
+
+           padding: 12px;
+
+           margin: 16px 0;
+
+       }
+
+
+
+       .mapa-encabezado {
+
+           align-items: flex-start;
+
+           flex-direction: column;
+
+           gap: 10px;
+
+       }
+
+
+
+       .mapa-encabezado h2 {
+
+           font-size: 19px;
+
+       }
+
+
+
+       .mapa-leyenda {
+
+           gap: 10px;
+
+           font-size: 12px;
+
+       }
+
+
+
+       .mapa-categorias {
+
+           gap: 6px;
+
+       }
+
+
+
+       .mapa-pestana {
+
+           padding: 8px 10px;
+
+           font-size: 11px;
+
+       }
+
+
+
+       .mapa-scroll {
+
+           overflow-x: auto;
+
+           overflow-y: hidden;
+
+       }
+
+
+
+       .mapa-plano {
+
+           width: 850px;
+
+           min-width: 850px;
+
+           height: 500px;
+
+       }
+
+
+
+       .mapa-area {
+
+           top: 18px;
+
+           right: 105px;
+
+           bottom: 18px;
+
+           left: 12px;
+
+       }
+
+
+
+       .mapa-frente {
+
+           width: 36px;
+
+       }
+
+
+
+       .mapa-puerta {
+
+           right: 36px;
+
+           width: 90px;
+
+           height: 85px;
+
+       }
+
+
+
+       .mapa-marcador {
+
+           transform: translate(-50%, -50%) scale(0.85);
+
+       }
+
+
+
+       .mapa-marcador:hover,
+
+       .mapa-marcador:active,
+
+       .mapa-marcador:focus {
+
+           transform: translate(-50%, -50%) scale(0.85) !important;
+
+       }
+
+
+
+       .mapa-ayuda {
+
+           padding: 11px;
+
+           font-size: 12px;
+
+       }
+
+
+
+       .recurso-seleccionado {
+
+           align-items: flex-start;
+
+           flex-direction: column;
+
+       }
+
+}
+
+/* ========================================= */
+/* RECURSO SELECCIONADO - DISTRIBUCION MEJORADA */
+/* ========================================= */
+
+.recurso-seleccionado {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.35fr) auto;
+    align-items: center;
+    gap: 28px;
+    padding: 26px 30px;
+}
+
+.recurso-seleccionado > div:first-child {
+    min-width: 0;
+}
+
+.recurso-seleccionado > div:first-child h3 {
+    font-size: clamp(22px, 2vw, 30px);
+    line-height: 1.25;
+}
+
+.incidencias-recurso-activas {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+}
+
+.incidencias-recurso-activas h4 {
+    margin: 0 0 4px;
+    color: #203b5c;
+    font-size: clamp(20px, 1.8vw, 27px);
+    line-height: 1.3;
+}
+
+.incidencia-recurso-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    min-height: 68px;
+    padding: 16px 20px;
+    border: 1px solid #d9e7f7;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(36, 73, 112, 0.05);
+}
+
+.incidencia-recurso-item strong {
+    color: #294968;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.incidencia-recurso-item span {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #fff2d8;
+    color: #a96600;
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: 0;
+}
+
+.recurso-seleccionado > button {
+    justify-self: end;
+    white-space: nowrap;
+    padding: 14px 22px;
+    border-radius: 13px;
+    background: linear-gradient(110deg, #2169bd, #258e9c);
+    font-size: 16px;
+}
+
+@media (max-width: 1100px) {
+    .recurso-seleccionado {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+        gap: 22px;
+    }
+
+    .recurso-seleccionado > button {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
+}
+
+@media (max-width: 700px) {
+    .recurso-seleccionado {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .incidencias-recurso-activas h4 {
+        font-size: 21px;
+    }
+
+    .incidencia-recurso-item {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .recurso-seleccionado > button {
+        grid-column: auto;
+        justify-self: stretch;
+        width: 100%;
+    }
+}
+
+.recurso-seleccionado {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.4fr) auto;
+    align-items: center;
+    gap: 22px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.recurso-seleccionado > div:first-child,
+.incidencias-recurso-activas {
+    min-width: 0;
+}
+
+.incidencias-recurso-activas {
+    width: 100%;
+}
+
+.incidencias-recurso-activas h4 {
+    overflow-wrap: anywhere;
+}
+
+.incidencia-recurso-item {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.recurso-seleccionado > button {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1100px) {
+    .recurso-seleccionado {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    }
+
+    .recurso-seleccionado > button {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
+}
+
+@media (max-width: 700px) {
+    .recurso-seleccionado {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .recurso-seleccionado > button {
+        grid-column: auto;
+        justify-self: stretch;
+        width: 100%;
+    }
+}
