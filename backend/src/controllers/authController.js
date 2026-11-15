@@ -127,7 +127,7 @@ const iniciarSesion = async (req, res) => {
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'none',
+            sameSite: 'lax',
             maxAge: 2 * 60 * 60 * 1000
         });
 
@@ -155,7 +155,7 @@ const cerrarSesion = (req, res) => {
     res.clearCookie('token', {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict'
+        sameSite: 'lax'
     });
 
     return res.json({
