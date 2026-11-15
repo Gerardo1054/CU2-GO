@@ -1,3 +1,5 @@
+import { API_BASE_URL } from '../../services/api';
+
 
 function IncidenciaCard({
     incidencia,
@@ -64,13 +66,13 @@ function IncidenciaCard({
                         {evidenciaVisible && (
                             incidencia.evidencia_tipo === 'imagen' ? (
                                 <img
-                                    src={`http://localhost:3000/api/incidencias/${incidencia.id}/evidencia`}
+                                    src={`${API_BASE_URL}/api/incidencias/${incidencia.id}/evidencia`}
                                     alt="Evidencia de la incidencia"
                                     className="evidencia-imagen"
                                 />
                             ) : (
                                 <video
-                                    src={`http://localhost:3000/api/incidencias/${incidencia.id}/evidencia`}
+                                    src={`${API_BASE_URL}/api/incidencias/${incidencia.id}/evidencia`}
                                     controls
                                     className="evidencia-video"
                                 />

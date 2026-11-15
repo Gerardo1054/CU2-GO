@@ -1,4 +1,5 @@
 const mysql = require('mysql2/promise');
+
 require('dotenv').config();
 
 const db = mysql.createPool({
@@ -10,7 +11,10 @@ const db = mysql.createPool({
     timezone: '-06:00',
     waitForConnections: true,
     connectionLimit: 10,
-    queueLimit: 0
+    queueLimit: 0,
+    ssl: process.env.DB_SSL === 'true'
+        ? { minVersion: 'TLSv1.2' }
+        : undefined
 });
 
 module.exports = db;
