@@ -302,6 +302,77 @@ const obtenerIncidenciaPorId = async (req, res) => {
     }
 };
 
+// Consultar el historial de una incidencia propia del alumno
+const obtenerSeguimientoAlumno = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!Number.isSafeInteger(Number(id)) || Number(id) <= 0) {
+            return res.status(400).json({
+                mensaje: 'ID de incidencia inválido'
+            });
+        }
+
+        // Comprobar que la incidencia pertenece al alumno.
+        const [incidencias] = await db.query(
+            `SELECT id
+             FROM incidencias
+             WHERE id = ? AND usuario_id = ?`,
+            [id, req.usuario.id]
+        );
+
+        if (incidencias.length === 0) {
+            return res.status(404).json({
+                mensaje: 'La incidencia no existe o no tienes acceso'
+            });
+        }
+
+        // Obtener el historial y quién realizó cada acción.
+        const [seguimiento] = await db.query(
+            `SELECT
+                s.id,
+                s.observacion,
+                s.estado_anterior,
+                s.estado_nuevo,
+                s.fecha,
+                CASE
+                    WHEN s.administrador_id IS NOT NULL
+                        THEN u_admin.nombre
+                    WHEN s.usuario_id IS NOT NULL
+                        THEN u_docente.nombre
+                    ELSE 'Sistema'
+                END AS realizado_por,
+                CASE
+                    WHEN s.administrador_id IS NOT NULL
+                        THEN 'Administrador'
+                    WHEN s.usuario_id IS NOT NULL
+                        THEN 'Docente'
+                    ELSE 'Sistema'
+                END AS rol
+             FROM seguimiento s
+             LEFT JOIN usuarios u_admin
+                ON s.administrador_id = u_admin.id
+             LEFT JOIN usuarios u_docente
+                ON s.usuario_id = u_docente.id
+             WHERE s.incidencia_id = ?
+             ORDER BY s.fecha DESC`,
+            [id]
+        );
+
+        return res.json(seguimiento);
+
+    } catch (error) {
+        console.error(
+            'Error al consultar historial del alumno:',
+            error.message
+        );
+
+        return res.status(500).json({
+            mensaje: 'Error interno al consultar el historial'
+        });
+    }
+};
+
 // Eliminar una incidencia propia que todavía esté recibida
 const eliminarMiIncidencia = async (req, res) => {
     const { id } = req.params;
@@ -481,5 +552,6 @@ module.exports = {
     obtenerMisIncidencias,
     obtenerIncidenciaPorId,
     eliminarMiIncidencia,
-    obtenerEvidencia
+    obtenerEvidencia,
+    obtenerSeguimientoAlumno
 };

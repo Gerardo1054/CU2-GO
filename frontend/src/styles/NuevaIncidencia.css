@@ -1,9 +1,26 @@
+
+/* =========================================
+   PÁGINA DE NUEVA INCIDENCIA
+========================================= */
+
 .incidencia-page {
     min-height: 100vh;
-    background: #f4f7fc;
     padding: 30px 20px;
     font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(ellipse at 10% 10%, rgba(48, 132, 225, .16), transparent 34%),
+        radial-gradient(ellipse at 90% 85%, rgba(32, 168, 117, .14), transparent 32%),
+        linear-gradient(135deg, #edf5ff, #f8fbff 52%, #edf8f3);
 }
+
+:root {
+    --cu2-blue: #1765bb;
+    --cu2-green: #20a875;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
 
 .incidencia-header {
     max-width: 850px;
@@ -11,23 +28,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #52708f;
+    color: #58718d;
     font-size: 13px;
     font-weight: 600;
 }
 
 .back-link {
-    color: #2877d4;
+    color: var(--cu2-blue);
+    font-weight: 700;
     text-decoration: none;
 }
+
+/* =========================================
+   TARJETA PRINCIPAL
+========================================= */
 
 .incidencia-card {
     max-width: 850px;
     margin: auto;
-    background: white;
     padding: 40px;
-    border-radius: 18px;
-    box-shadow: 0 5px 25px #142c5010;
+    background: rgba(255, 255, 255, .68);
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 28px;
+    box-shadow:
+        0 24px 65px rgba(17, 54, 105, .12),
+        inset 0 1px 0 rgba(255, 255, 255, .95);
+    backdrop-filter: blur(26px) saturate(150%);
+    -webkit-backdrop-filter: blur(26px) saturate(150%);
 }
 
 .incidencia-heading {
@@ -35,16 +62,16 @@
 }
 
 .incidencia-tag {
-    color: #3988e8;
+    color: var(--cu2-green);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 1.5px;
 }
 
 .incidencia-heading h1 {
-    color: #172b4d;
-    font-size: 27px;
     margin: 12px 0;
+    color: #12345b;
+    font-size: 27px;
 }
 
 .incidencia-heading p {
@@ -52,6 +79,10 @@
     font-size: 14px;
     line-height: 1.6;
 }
+
+/* =========================================
+   FORMULARIO
+========================================= */
 
 .incidencia-card form {
     display: flex;
@@ -67,9 +98,9 @@
 }
 
 .form-group label {
+    color: #294765;
     font-size: 13px;
     font-weight: 700;
-    color: #34445e;
 }
 
 .form-group input,
@@ -77,12 +108,12 @@
 .form-group select {
     width: 100%;
     padding: 13px 14px;
-    border: 1px solid #dce4ef;
-    border-radius: 9px;
-    background: #fbfcfe;
     color: #263750;
     font-family: inherit;
     font-size: 13px;
+    background: rgba(255, 255, 255, .76);
+    border: 1px solid rgba(129, 158, 191, .30);
+    border-radius: 13px;
     outline: none;
     transition: .2s;
 }
@@ -90,8 +121,8 @@
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-    border-color: #3988e8;
-    box-shadow: 0 0 0 3px #3988e81a;
+    border-color: rgba(23, 101, 187, .68);
+    box-shadow: 0 0 0 4px rgba(23, 101, 187, .11);
 }
 
 .form-group textarea {
@@ -108,20 +139,26 @@
     gap: 20px;
 }
 
-.incidencia-card button {
-    border: none;
-    border-radius: 9px;
-    padding: 15px;
-    background: #2877d4;
+/* =========================================
+   BOTONES
+========================================= */
+
+.incidencia-card button:not(.quitar-evidencia):not(.boton-ayuda) {
     color: white;
     font-size: 14px;
     font-weight: 700;
+    background: linear-gradient(110deg, var(--cu2-blue), #237bd0 62%, var(--cu2-green));
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(23, 101, 187, .20);
+    padding: 15px;
     cursor: pointer;
     transition: .2s;
 }
 
-.incidencia-card button:hover {
-    background: #1c60b1;
+.incidencia-card button:not(.quitar-evidencia):not(.boton-ayuda):hover {
+    background: linear-gradient(110deg, #10539f, #1d70bd 62%, #13845b);
+    transform: translateY(-2px);
 }
 
 .incidencia-card button:disabled {
@@ -129,13 +166,174 @@
     cursor: wait;
 }
 
+/* =========================================
+   BOTÓN DE AYUDA
+========================================= */
+
+.tipo-problema-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.form-group .boton-ayuda,
+.form-group .boton-ayuda:hover,
+.form-group .boton-ayuda:focus,
+.form-group .boton-ayuda:active {
+    all: unset;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.form-group .boton-ayuda:hover {
+    color: #334155;
+}
+
+/* =========================================
+   MENSAJE DE AYUDA - ESTILO WHATSAPP
+========================================= */
+
+.mensaje-ayuda {
+    position: relative;
+    width: fit-content;
+    max-width: 540px;
+    margin: 12px 0 16px;
+    padding: 14px 17px;
+    color: #254b35;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #e7f8ed;
+    border: 1px solid #ccebd6;
+    border-radius: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .04);
+}
+
+.mensaje-ayuda::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 18px;
+    width: 13px;
+    height: 13px;
+    background: #e7f8ed;
+    border-top: 1px solid #ccebd6;
+    border-left: 1px solid #ccebd6;
+    transform: rotate(45deg);
+}
+
+.mensaje-ayuda strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #176b3a;
+}
+
+.mensaje-ayuda p {
+    margin: 5px 0;
+}
+
+/* =========================================
+   MENSAJES DE ERROR
+========================================= */
+
 .incidencia-error {
-    background: #fff0f0;
-    color: #c03939;
-    border-radius: 8px;
     padding: 12px;
+    color: #c03939;
+    font-size: 13px;
+    background: #fff0f0;
+    border-radius: 8px;
+}
+
+/* =========================================
+   EVIDENCIAS
+========================================= */
+
+.evidencia-group {
+    margin-top: 24px;
+}
+
+.evidencia-group > p {
+    margin: 6px 0 14px;
+    color: #64748b;
     font-size: 13px;
 }
+
+.evidencia-group input[type="file"] {
+    width: 100%;
+    padding: 15px;
+    color: #334155;
+    background: rgba(239, 247, 255, .72);
+    border: 2px dashed rgba(23, 101, 187, .30);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.evidencia-group input[type="file"]:hover {
+    border-color: var(--cu2-green);
+    background: rgba(32, 168, 117, .07);
+}
+
+.evidencia-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 14px;
+    background: rgba(239, 247, 255, .68);
+    border: 1px solid rgba(255, 255, 255, .92);
+    border-radius: 18px;
+    backdrop-filter: blur(16px);
+}
+
+.evidencia-preview img,
+.evidencia-preview video {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+
+.evidencia-preview small {
+    color: #64748b;
+    overflow-wrap: anywhere;
+}
+
+/* =========================================
+   QUITAR EVIDENCIA
+========================================= */
+
+.quitar-evidencia {
+    align-self: flex-start;
+    padding: 9px 15px !important;
+    color: white !important;
+    font-weight: 600;
+    background: linear-gradient(110deg, #b92e42, #cf4454) !important;
+    border: 1px solid rgba(255, 255, 255, .25) !important;
+    border-radius: 11px !important;
+    box-shadow: 0 4px 14px rgba(185, 46, 66, .22);
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.quitar-evidencia:hover {
+    color: white !important;
+    background: linear-gradient(110deg, #a82337, #bd3446) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(185, 46, 66, .3);
+}
+
+.quitar-evidencia:active {
+    transform: translateY(1px) scale(.98);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media (max-width: 600px) {
     .incidencia-card {
@@ -149,150 +347,8 @@
     .incidencia-heading h1 {
         font-size: 23px;
     }
-}
 
-
-/* Sección de evidencias */
-
-.evidencia-group {
-    margin-top: 24px;
-}
-
-.evidencia-group > p {
-    color: #64748b;
-    font-size: 13px;
-    margin: 6px 0 14px;
-}
-
-.evidencia-group input[type="file"] {
-    width: 100%;
-    padding: 15px;
-    border: 2px dashed #b8c8e5;
-    border-radius: 12px;
-    background: #f7faff;
-    cursor: pointer;
-    color: #334155;
-}
-
-.evidencia-group input[type="file"]:hover {
-    border-color: #2563eb;
-    background: #eff6ff;
-}
-
-.evidencia-preview {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 18px;
-    padding: 14px;
-    border: 1px solid #dbe5f2;
-    border-radius: 14px;
-    background: #f8fafc;
-}
-
-.evidencia-preview img,
-.evidencia-preview video {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 10px;
-    background: #e2e8f0;
-}
-
-.evidencia-preview small {
-    color: #64748b;
-    overflow-wrap: anywhere;
-}
-
-.quitar-evidencia {
-    align-self: flex-start;
-    padding: 9px 15px;
-    border: none;
-    border-radius: 8px;
-    background: #fee2e2;
-    color: #b91c1c;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.quitar-evidencia:hover {
-    background: #fecaca;
-}
-
-
-
-/* ===== CU2 GO · LIQUID GLASS ===== */
-:root {
-  --cu2-blue: #1765bb;
-  --cu2-green: #20a875;
-}
-.incidencia-page {
-  background:
-    radial-gradient(ellipse at 10% 10%,rgba(48,132,225,.16),transparent 34%),
-    radial-gradient(ellipse at 90% 85%,rgba(32,168,117,.14),transparent 32%),
-    linear-gradient(135deg,#edf5ff,#f8fbff 52%,#edf8f3);
-}
-.incidencia-header { color: #58718d; }
-.back-link { color: var(--cu2-blue); font-weight: 700; }
-.incidencia-card {
-  background: rgba(255,255,255,.68);
-  border: 1px solid rgba(255,255,255,.9);
-  border-radius: 28px;
-  box-shadow: 0 24px 65px rgba(17,54,105,.12),inset 0 1px 0 rgba(255,255,255,.95);
-  backdrop-filter: blur(26px) saturate(150%);
-  -webkit-backdrop-filter: blur(26px) saturate(150%);
-}
-.incidencia-heading h1 { color: #12345b; }
-.incidencia-tag { color: var(--cu2-green-dark); }
-.form-group label { color: #294765; }
-.form-group input,.form-group textarea,.form-group select {
-  background: rgba(255,255,255,.76);
-  border: 1px solid rgba(129,158,191,.30);
-  border-radius: 13px;
-}
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus {
-  border-color: rgba(23,101,187,.68);
-  box-shadow: 0 0 0 4px rgba(23,101,187,.11);
-}
-.incidencia-card button:not(.quitar-evidencia) {
-  background: linear-gradient(110deg,var(--cu2-blue),#237bd0 62%,var(--cu2-green));
-  border: 1px solid rgba(255,255,255,.35);
-  border-radius: 14px;
-  box-shadow: 0 10px 24px rgba(23,101,187,.20);
-}
-.incidencia-card button:not(.quitar-evidencia):hover {
-  background: linear-gradient(110deg,#10539f,#1d70bd 62%,#13845b);
-  transform: translateY(-2px);
-}
-.evidencia-group input[type="file"] {
-  background: rgba(239,247,255,.72);
-  border-color: rgba(23,101,187,.30);
-  border-radius: 15px;
-}
-.evidencia-group input[type="file"]:hover {
-  border-color: var(--cu2-green);
-  background: rgba(32,168,117,.07);
-}
-.evidencia-preview {
-  background: rgba(239,247,255,.68);
-  border: 1px solid rgba(255,255,255,.92);
-  border-radius: 18px;
-  backdrop-filter: blur(16px);
-}
-.quitar-evidencia {
-  background: linear-gradient(110deg, #b92e42, #cf4454) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(255,255,255,.25) !important;
-  border-radius: 11px !important;
-  box-shadow: 0 4px 14px rgba(185, 46, 66, 0.22);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-.quitar-evidencia:hover {
-  background: linear-gradient(110deg, #a82337, #bd3446) !important;
-  color: #ffffff !important;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(185, 46, 66, 0.3);
-}
-.quitar-evidencia:active {
-  transform: translateY(1px) scale(0.98);
+    .mensaje-ayuda {
+        max-width: 100%;
+    }
 }

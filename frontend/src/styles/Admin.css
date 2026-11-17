@@ -756,6 +756,12 @@ k
     border: 1px solid rgba(32, 168, 117, 0.28);
 }
 
+.estado-badge.estado-pendiente_validacion {
+    background: rgba(217, 153, 35, 0.15);
+    color: #92600b;
+    border: 1px solid rgba(217, 153, 35, 0.35);
+}
+
 
 .admin-toast {
     position: fixed;

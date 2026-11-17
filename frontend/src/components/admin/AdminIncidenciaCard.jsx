@@ -45,8 +45,9 @@ function AdminIncidenciaCard({
                 <span className={`estado-badge estado-${incidencia.estado}`}>
                     {incidencia.estado === 'recibida' && '● Recibida'}
                     {incidencia.estado === 'en_proceso' && '● En proceso'}
+                    {incidencia.estado === 'pendiente_validacion' && '● Pendiente de validación'}
                     {incidencia.estado === 'arreglada' && '✓ Arreglada'}
-                </span>
+                     </span>
             </div>
 
             <p>

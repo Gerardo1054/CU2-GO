@@ -9,8 +9,14 @@ function DocenteIncidenciaCard({
         ? new Date(incidencia.fecha_creacion).toLocaleDateString('es-MX')
         : 'Sin fecha';
 
-    const estado = (incidencia.estado || 'Sin estado')
-        .replaceAll('_', ' ');
+    const estadosTexto = {
+    recibida: 'Recibida',
+    en_proceso: 'En proceso',
+    pendiente_validacion: 'Pendiente de validación',
+    arreglada: 'Arreglada'
+};
+
+    const estado = estadosTexto[incidencia.estado] || 'Sin estado';
 
     const nombreReportante =
         incidencia.creado_por ||

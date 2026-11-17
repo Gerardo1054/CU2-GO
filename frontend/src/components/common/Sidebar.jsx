@@ -9,7 +9,9 @@ function Sidebar({
     totalActivas,
     totalHistorial,
     cerrandoSesion,
-    cerrarSesion
+    cerrarSesion,
+    actualizando,
+    actualizarIncidencias,
 }) {
     return (
         <aside className="sidebar">
@@ -60,7 +62,18 @@ function Sidebar({
                 >
                     Mi historial ({totalHistorial})
                 </a>
-
+                <button
+                    type="button"
+                    className="nav-item refresh-item"
+                    onClick={() => {
+                        setMenuAbierto(false);
+                        actualizarIncidencias();
+                    }}
+                    disabled={actualizando}
+                >
+                    <span>{actualizando ? '◌' : '↻'}</span>
+                    {actualizando ? 'Actualizando...' : 'Actualizar reportes'}
+                </button>
                 <Link
                     to="/nueva-incidencia"
                     className="nav-item"

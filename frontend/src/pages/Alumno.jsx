@@ -17,6 +17,8 @@ import useAlumno from '../hooks/useAlumno';
 function Alumno() {
     const {
         cargando,
+        actualizando,
+        cargarIncidencias,
         error,
         cerrandoSesion,
         errorSesion,
@@ -45,6 +47,8 @@ function Alumno() {
             <Sidebar
                 menuAbierto={menuAbierto}
                 setMenuAbierto={setMenuAbierto}
+                actualizando={actualizando}
+                actualizarIncidencias={cargarIncidencias}
                 seccionActual={seccionActual}
                 setSeccionActual={setSeccionActual}
                 totalActivas={incidenciasActivas.length}

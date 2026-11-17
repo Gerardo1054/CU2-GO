@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
@@ -15,25 +15,32 @@ function useAlumno() {
     const [seccionActual, setSeccionActual] = useState('activos');
     const [evidenciaVisible, setEvidenciaVisible] = useState({});
     const [menuAbierto, setMenuAbierto] = useState(false);
+    const [actualizando, setActualizando] = useState(false);
 
     const navigate = useNavigate();
 
-    // Cargar incidencias del alumno
-    useEffect(() => {
-        const cargarIncidencias = async () => {
+    // Cargar y actualizar incidencias del alumno
+        const cargarIncidencias = useCallback(async () => {
             try {
+                setActualizando(true);
+                setError('');
+
                 const respuesta = await api.get('/incidencias/mis-incidencias');
                 setIncidencias(respuesta.data);
+
             } catch (err) {
                 setError('No se pudieron cargar tus incidencias.');
                 console.error(err);
+
             } finally {
                 setCargando(false);
+                setActualizando(false);
             }
-        };
+        }, []);
 
-        cargarIncidencias();
-    }, []);
+        useEffect(() => {
+            cargarIncidencias();
+        }, [cargarIncidencias]);
 
     // Ocultar mensajes después de 3 segundos
     useEffect(() => {
@@ -100,13 +107,14 @@ function useAlumno() {
     };
 
     // Filtrar incidencias activas
-    const incidenciasActivas = useMemo(() => {
-        return incidencias.filter(
-            incidencia =>
-                incidencia.estado === 'recibida' ||
-                incidencia.estado === 'en_proceso'
-        );
-    }, [incidencias]);
+const incidenciasActivas = useMemo(() => {
+    return incidencias.filter(
+        incidencia =>
+            incidencia.estado === 'recibida' ||
+            incidencia.estado === 'en_proceso' ||
+            incidencia.estado === 'pendiente_validacion'
+    );
+}, [incidencias]);
 
     // Filtrar historial
     const incidenciasHistorial = useMemo(() => {
@@ -141,6 +149,8 @@ function useAlumno() {
     return {
         incidencias,
         cargando,
+        actualizando,
+        cargarIncidencias,
         error,
         cerrandoSesion,
         errorSesion,

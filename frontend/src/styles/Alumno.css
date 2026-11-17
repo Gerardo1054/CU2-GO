@@ -570,7 +570,15 @@
 }
 
 .reporte-estado {
-    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-top: 18px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .reporte-descripcion {
@@ -644,7 +652,7 @@
     border-radius: 30px;
     font-size: 13px !important;
     font-weight: 700;
-    margin-top: 12px;
+    margin: 0;
     border: 1px solid transparent;
 }
 
@@ -664,6 +672,12 @@
     background: rgba(32, 168, 117, .13);
     color: #08764f !important;
     border-color: rgba(32, 168, 117, .25);
+}
+
+.estado-pendiente_validacion {
+    background: #fff4df;
+    color: #a6530b !important;
+    border-color: #f4cc8e;
 }
 
 .reporte-card-arreglado {
@@ -967,4 +981,131 @@
         left: 12px;
         max-width: none;
     }
+}
+
+/* =========================================
+   ACTUALIZAR REPORTES
+========================================= */
+
+.refresh-item {
+    width: 100%;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.refresh-item:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   SEGUIMIENTO DE INCIDENCIAS
+========================================= */
+
+.seguimiento-reporte {
+    width: 100%;
+    margin-top: 12px;
+    border: 1px solid #dce8f5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #f8fbff;
+}
+
+.seguimiento-toggle {
+    width: 100%;
+    padding: 15px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: #edf5ff;
+    color: #15549a;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: left;
+    transition: background .2s ease;
+}
+
+.seguimiento-toggle:hover {
+    background: #e1efff;
+}
+
+.seguimiento-contenido {
+    padding: 18px;
+}
+
+.seguimiento-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.seguimiento-item {
+    padding: 16px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #1765bb;
+    border-radius: 10px;
+}
+
+.seguimiento-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.seguimiento-item-header strong {
+    color: #123b68;
+    font-size: 14px;
+}
+
+.seguimiento-item-header span {
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #eaf2ff;
+    color: #1765bb;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.seguimiento-fecha {
+    margin: 8px 0 !important;
+    color: #8490a3 !important;
+    font-size: 12px !important;
+}
+
+.seguimiento-estados {
+    margin: 8px 0 !important;
+    color: #475569 !important;
+    font-size: 13px !important;
+}
+
+.seguimiento-observacion {
+    margin-top: 10px;
+    padding: 12px;
+    background: #f1f7ff;
+    border-radius: 9px;
+}
+
+.seguimiento-observacion strong {
+    color: #334155;
+    font-size: 13px;
+}
+
+.seguimiento-observacion p {
+    margin: 6px 0 0 !important;
+    color: #475569 !important;
+    font-size: 13px !important;
+    white-space: pre-wrap;
+}
+
+.seguimiento-error {
+    color: #b91c1c !important;
+    font-size: 13px !important;
 }

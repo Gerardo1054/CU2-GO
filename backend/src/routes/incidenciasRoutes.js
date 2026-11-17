@@ -8,7 +8,8 @@ const {
     obtenerMisIncidencias,
     obtenerIncidenciaPorId,
     eliminarMiIncidencia,
-    obtenerEvidencia
+    obtenerEvidencia,
+    obtenerSeguimientoAlumno
 } = require('../controllers/incidenciasController');
 
 const {
@@ -48,6 +49,14 @@ router.delete(
     verificarToken,
     verificarRol('alumno'),
     eliminarMiIncidencia
+);
+
+// Consultar historial de una incidencia propia: solo alumnos
+router.get(
+    '/:id/seguimiento',
+    verificarToken,
+    verificarRol('alumno'),
+    obtenerSeguimientoAlumno
 );
 
 // Consultar detalle: solo alumnos

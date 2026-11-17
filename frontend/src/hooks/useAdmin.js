@@ -100,11 +100,14 @@ function useAdmin() {
     }, [listaEdificios, incidencias]);
 
     // Separar incidencias activas e historial
-    const incidenciasActivas = useMemo(() => {
-        return incidencias.filter(
-            i => i.estado === 'recibida' || i.estado === 'en_proceso'
-        );
-    }, [incidencias]);
+const incidenciasActivas = useMemo(() => {
+    return incidencias.filter(
+        i =>
+            i.estado === 'recibida' ||
+            i.estado === 'en_proceso' ||
+            i.estado === 'pendiente_validacion'
+    );
+}, [incidencias]);
 
     const incidenciasHistorial = useMemo(() => {
         return incidencias.filter(

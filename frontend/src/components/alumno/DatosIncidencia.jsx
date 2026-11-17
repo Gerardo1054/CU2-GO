@@ -1,4 +1,6 @@
 
+import { useState } from 'react';
+
 function DatosIncidencia({
     titulo,
     descripcion,
@@ -10,6 +12,8 @@ function DatosIncidencia({
     setCategoria,
     setTipoProblema
 }) {
+    const [mostrarAyuda, setMostrarAyuda] = useState(false);
+
     return (
         <>
             <div className="form-group">
@@ -63,9 +67,43 @@ function DatosIncidencia({
             </div>
 
             <div className="form-group">
-                <label htmlFor="tipoProblema">
-                    Tipo de problema
-                </label>
+                <div className="tipo-problema-label">
+                    <label htmlFor="tipoProblema">
+                        Tipo de problema
+                    </label>
+
+                    <button
+                        type="button"
+                        className="boton-ayuda"
+                        onClick={() => setMostrarAyuda(!mostrarAyuda)}
+                        aria-label="Ayuda sobre el tipo de problema"
+                        aria-expanded={mostrarAyuda}
+                    >
+                        ⓘ
+                    </button>
+                </div>
+
+                {mostrarAyuda && (
+                    <div className="mensaje-ayuda">
+                        <strong>¿Cómo seleccionar el tipo de problema?</strong>
+                        <p>
+                            1. Primero selecciona el edificio y el salón donde
+                            se encuentra el problema.
+                        </p>
+                        <p>
+                            2. Después se desplegará el mapa con los recursos
+                            disponibles en esa ubicación.
+                        </p>
+                        <p>
+                            3. Selecciona en el mapa el recurso que presenta
+                            la falla.
+                        </p>
+                        <p>
+                            4. Finalmente, regresa a este apartado y selecciona
+                            el tipo de problema correspondiente.
+                        </p>
+                    </div>
+                )}
 
                 <select
                     id="tipoProblema"
