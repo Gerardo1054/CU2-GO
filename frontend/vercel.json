@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://cu2-go-backend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
